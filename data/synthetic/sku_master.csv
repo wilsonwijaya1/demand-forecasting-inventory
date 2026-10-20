@@ -1,0 +1,51 @@
+sku,category,pattern,unit_cost,base_level,noise_cv,trend_per_month,lt_mean,lt_sd
+SKU-001,Grocery,stable,3.15,227.7444,0.1249,0.0,6.25,1.3568
+SKU-002,Grocery,seasonal,2.31,124.1881,0.1171,0.0,4.5,0.9045
+SKU-003,Grocery,seasonal,4.64,179.459,0.1176,0.0,5.0833,0.793
+SKU-004,Grocery,volatile,3.28,274.0652,0.3299,0.0,3.3333,1.1547
+SKU-005,Grocery,intermittent,2.85,2.966,,0.0,8.4167,0.9962
+SKU-006,Grocery,trend_seasonal,2.15,163.9189,0.0732,0.0065,3.9167,0.6686
+SKU-007,Grocery,volatile,7.91,111.9402,0.3968,0.0,10.1667,1.6967
+SKU-008,Grocery,volatile,3.53,91.8568,0.3138,0.0,4.3333,0.9847
+SKU-009,Grocery,volatile,2.82,71.043,0.3297,0.0,6.5,1.3817
+SKU-010,Grocery,trend_down,3.26,73.7084,0.104,-0.0079,6.4167,1.505
+SKU-011,Household,intermittent,4.81,2.299,,0.0,15.1667,2.5879
+SKU-012,Household,trend_seasonal,14.82,101.3952,0.0986,0.0052,10.0833,0.793
+SKU-013,Household,intermittent,16.64,2.5205,,0.0,16.8333,2.6227
+SKU-014,Household,seasonal,21.15,99.1463,0.0994,0.0,14.1667,1.6422
+SKU-015,Household,seasonal,12.28,76.3449,0.053,0.0,8.3333,1.2309
+SKU-016,Household,stable,12.47,148.5807,0.1126,0.0,12.1667,2.2088
+SKU-017,Household,stable,9.56,326.5022,0.0763,0.0,12.25,1.4222
+SKU-018,Household,intermittent,12.64,3.6237,,0.0,13.3333,1.7753
+SKU-019,Household,trend_seasonal,15.63,162.723,0.0869,0.008,12.0,2.6968
+SKU-020,Household,seasonal,16.79,110.7362,0.0679,0.0,6.9167,0.9962
+SKU-021,Electronics,trend_seasonal,155.62,195.1244,0.107,0.0057,37.3333,10.9655
+SKU-022,Electronics,trend_up,96.78,252.9508,0.0979,0.0066,26.0,3.6927
+SKU-023,Electronics,trend_seasonal,45.12,170.7613,0.0785,0.0043,23.3333,4.0302
+SKU-024,Electronics,seasonal,54.1,143.7427,0.1041,0.0,22.3333,4.6188
+SKU-025,Electronics,seasonal,161.85,260.4424,0.0701,0.0,30.6667,6.6788
+SKU-026,Electronics,intermittent,105.31,1.8822,,0.0,20.4167,4.033
+SKU-027,Electronics,trend_down,84.95,73.7958,0.0791,-0.0063,22.3333,3.7497
+SKU-028,Electronics,intermittent,119.33,2.9115,,0.0,23.9167,4.231
+SKU-029,Electronics,trend_seasonal,175.58,75.5423,0.091,0.0073,34.0833,6.3024
+SKU-030,Electronics,trend_down,85.87,247.9653,0.097,-0.0054,25.5,5.5841
+SKU-031,Apparel,stable,20.49,313.8192,0.1023,0.0,30.25,4.4949
+SKU-032,Apparel,volatile,23.94,145.1425,0.2586,0.0,23.8333,5.1493
+SKU-033,Apparel,trend_seasonal,26.7,131.5098,0.1037,0.0067,25.5833,5.4848
+SKU-034,Apparel,trend_up,17.2,220.161,0.0647,0.0127,24.75,4.7122
+SKU-035,Apparel,intermittent,25.93,2.5357,,0.0,21.5833,2.9987
+SKU-036,Apparel,stable,24.99,126.7781,0.1098,0.0,14.0,2.2962
+SKU-037,Apparel,trend_up,59.34,428.6283,0.0651,0.0089,24.0,5.3767
+SKU-038,Apparel,seasonal,15.72,200.8155,0.0538,0.0,17.5,4.8148
+SKU-039,Apparel,seasonal,12.26,99.3498,0.0646,0.0,27.5,2.7798
+SKU-040,Apparel,trend_seasonal,21.2,251.5668,0.0669,0.0081,22.4167,5.9001
+SKU-041,Health & Beauty,stable,9.94,105.8763,0.0788,0.0,15.4167,2.0652
+SKU-042,Health & Beauty,trend_up,7.27,213.5839,0.1167,0.0095,17.6667,2.0151
+SKU-043,Health & Beauty,trend_up,5.65,112.6419,0.0978,0.0093,10.25,2.9271
+SKU-044,Health & Beauty,volatile,2.79,182.2963,0.392,0.0,15.6667,2.2697
+SKU-045,Health & Beauty,stable,9.98,118.8115,0.1116,0.0,10.8333,2.329
+SKU-046,Health & Beauty,trend_seasonal,6.6,162.7941,0.0711,0.0065,10.9167,2.503
+SKU-047,Health & Beauty,trend_seasonal,3.08,218.4604,0.0685,0.0055,13.75,2.8644
+SKU-048,Health & Beauty,stable,7.07,178.9853,0.1176,0.0,12.3333,1.4355
+SKU-049,Health & Beauty,trend_up,17.67,62.5354,0.0807,0.0085,16.0,1.7056
+SKU-050,Health & Beauty,trend_up,8.56,55.5614,0.1086,0.0143,11.3333,1.1547
