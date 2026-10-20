@@ -111,10 +111,29 @@ def score_forecasts(
     return pd.DataFrame(out)
 
 
-def select_best(scores: pd.DataFrame, metric: str = "mase", candidates=None) -> pd.DataFrame:
-    """Pick the method with the lowest ``metric`` for each SKU."""
+# Level-only methods considered for intermittent / lumpy SKUs (Syntetos-Boylan class).
+# Seasonal and trend models fitted to mostly-zero series are not meaningful, so
+# they are excluded from the candidate set for those SKUs.
+INTERMITTENT_ELIGIBLE = ("naive", "ma3", "wma3", "ses", "croston", "sba")
+
+
+def select_best(
+    scores: pd.DataFrame,
+    metric: str = "mase",
+    candidates=None,
+    sbc_class: pd.Series | None = None,
+) -> pd.DataFrame:
+    """Pick the method with the lowest ``metric`` for each SKU.
+
+    If ``sbc_class`` (sku -> smooth/erratic/intermittent/lumpy) is given,
+    intermittent and lumpy SKUs may only choose from :data:`INTERMITTENT_ELIGIBLE`.
+    """
     s = scores if candidates is None else scores[scores["method"].isin(list(candidates))]
     s = s.dropna(subset=[metric])
+    if sbc_class is not None:
+        cls = s["sku"].map(sbc_class)
+        restricted = cls.isin(["intermittent", "lumpy"]) & ~s["method"].isin(INTERMITTENT_ELIGIBLE)
+        s = s[~restricted]
     idx = s.groupby("sku")[metric].idxmin()
     best = s.loc[idx, ["sku", "method", metric]].rename(
         columns={"method": "best_method", metric: f"best_{metric}"}

@@ -38,3 +38,15 @@ def test_horizon_is_truncated_at_end_of_data_and_selection_picks_lowest_error():
         pd.Series({"a": 1.0}),
     )
     assert bt.select_best(scores).loc["a", "best_method"] == "good"
+
+
+def test_intermittent_skus_are_restricted_to_level_methods():
+    rows = []
+    for method, err in (("holt_winters_add", 0.0), ("croston", 2.0)):
+        for y in (0, 5, 0, 5):
+            rows.append(dict(sku="a", method=method, origin=0, h=1, target_idx=0, y_true=y, y_pred=y + err))
+    scores = bt.score_forecasts(pd.DataFrame(rows), pd.Series({"a": 1.0}))
+    free = bt.select_best(scores)
+    restricted = bt.select_best(scores, sbc_class=pd.Series({"a": "intermittent"}))
+    assert free.loc["a", "best_method"] == "holt_winters_add"
+    assert restricted.loc["a", "best_method"] == "croston"
