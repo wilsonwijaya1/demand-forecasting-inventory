@@ -51,8 +51,9 @@ def plot_sample_series(demand: pd.DataFrame, master: pd.DataFrame, fig_dir=None)
         ax.axvline(demand.columns[60], color=C_SEL, ls="--", lw=1)
         ax.set_title(f"{pat}  ({sku})")
         ax.tick_params(axis="x", labelrotation=45)
-    axes.ravel()[-1].axis("off")
-    axes.ravel()[-1].text(0, 0.6, "dashed line = start of\nheld-out year 6", color=C_SEL, fontsize=10)
+    last = axes.ravel()[-1]
+    last.axis("off")
+    last.text(0.05, 0.5, "dashed line = start of" + chr(10) + "held-out year 6", color=C_SEL, fontsize=10, transform=last.transAxes)
     fig.suptitle("One synthetic SKU per demand pattern (monthly units)", fontweight="bold")
     fig.tight_layout()
     return _save(fig, "01_demand_patterns.png", fig_dir), fig
@@ -87,13 +88,14 @@ def plot_method_mase(summary_sel: pd.DataFrame, summary_test: pd.DataFrame, fig_
     ax.barh(y - 0.2, [sel[m] for m in order], height=0.38, color=[color(m) for m in order], alpha=0.40,
             label="Selection backtest (lighter)")
     ax.axvline(tst["selected"], color=C_SEL, lw=1.6, ls="--")
-    ax.text(tst["selected"], len(order) - 0.35, f" per-SKU selection {tst['selected']:.2f}", color=C_SEL, va="bottom")
+    ax.text(tst["selected"] + 0.01, -0.75, f"per-SKU selection {tst['selected']:.2f}", color=C_SEL, va="center")
     ax.axvline(1.0, color="k", lw=0.8)
     ax.set_yticks(y, labels)
     ax.invert_yaxis()
     ax.set_xlabel("Mean MASE over 50 SKUs (lower is better; 1.0 = in-sample naive)")
     ax.set_title("Accuracy by method: grey = baselines, blue = advanced")
-    ax.legend(frameon=False, loc="lower right")
+    ax.set_ylim(len(order) - 0.5, -1.1)
+    ax.legend(frameon=False, loc="upper right", bbox_to_anchor=(1.0, 0.93))
     return _save(fig, "03_method_mase.png", fig_dir), fig
 
 
